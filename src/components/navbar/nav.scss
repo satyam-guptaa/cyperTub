@@ -6,4 +6,35 @@
 	margin: 3.2rem;
 	background: $semi-dark-blue;
 	border-radius: 2rem;
+	padding: 3rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+	&-links-container {
+		margin: 7.5rem 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 20rem;
+	}
+
+	&-avatar-container {
+		display: flex;
+		align-items: flex-end;
+		flex-grow: 1;
+		justify-self: flex-end;
+
+		> button {
+			width: 4rem;
+			height: 4rem;
+			border-radius: 50%;
+			border: 2px solid $primary-white;
+			img {
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
 }
