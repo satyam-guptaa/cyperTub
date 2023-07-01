@@ -2,4 +2,8 @@
 
 .app {
 	display: flex;
+
+	&-content {
+		flex: 1;
+	}
 }
