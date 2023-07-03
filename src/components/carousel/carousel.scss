@@ -1,0 +1,33 @@
+@import '../../stylesheet/main.scss';
+.carousel-container {
+	position: relative;
+	width: 110rem;
+	height: 23rem;
+	overflow: hidden;
+	&-arrow {
+		position: absolute;
+		padding: 1rem;
+		width: 5rem;
+		background: rgba(0, 0, 0, 0.2);
+		font-size: 5rem;
+		top: 8rem;
+		height: 5rem;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		font-weight: 600;
+		color: $primary-white;
+	}
+	&-arrow-left {
+		left: 0;
+	}
+	&-arrow-right {
+		right: 0;
+	}
+	.thumbnails {
+		display: flex;
+		gap: 6.4rem;
+		overflow: hidden;
+		scroll-behavior: smooth;
+	}
+}

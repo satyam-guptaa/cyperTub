@@ -1,26 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAppData } from '../../store/appDataSlice';
 import './home.scss';
+import Carousel from '../../components/carousel/Carousel';
 
 const Home = () => {
 	const { data } = useSelector((state) => state.appData);
-	const [fetchedData, setFectchedData] = useState([]);
 	const dispatch = useDispatch();
-
-	useEffect(() => {
-		setFectchedData(data);
+	const trendingCollection = useMemo(() => {
+		return data.filter((item) => item.isTrending);
 	}, [data]);
 
 	useEffect(() => {
-		dispatch(fetchAppData());
+		//to prevent refetching on each rerender except the reload of page
+		if (data.length === 0) {
+			dispatch(fetchAppData());
+		}
 	}, []);
 
-	if (fetchedData.length > 0) {
-		console.log(fetchedData.filter((item) => item.isTrending));
-	}
-
-	return <div>Home</div>;
+	return (
+		<section className='home-trending-section'>
+			<h1>Trending</h1>
+			{trendingCollection && trendingCollection.length > 0 && (
+				<Carousel data={trendingCollection} />
+			)}
+		</section>
+	);
 };
 
 export default Home;
