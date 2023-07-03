@@ -7,8 +7,11 @@ const initialState = { data: [], loading: false, error: null };
 export const fetchAppData = createAsyncThunk(
 	'appData/fetchAppData',
 	async () => {
+		//to mimic api call adding a delay
+		await new Promise((resolve) => setTimeout(resolve, 2000));
 		const { data } = await axios.get(GET_DATA);
-		return data.res;
+		const res = await data.res;
+		return res;
 	}
 );
 
