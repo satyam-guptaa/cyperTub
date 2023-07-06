@@ -1,0 +1,26 @@
+@import '../../stylesheet/main';
+
+.searchbar {
+	margin: 3.2rem 3.2rem 3.5rem 0;
+	display: flex;
+	align-items: center;
+	gap: 2.4rem;
+	position: relative;
+
+	&-input {
+		background: none;
+		width: 70%;
+		height: 3rem;
+		caret-color: $primary-red;
+		@include font-hmd-light;
+	}
+
+	&-underline {
+		position: absolute;
+		bottom: -1.2rem;
+		left: 5.8rem;
+		background: $greyish-blue;
+		width: 48rem;
+		height: 0.1rem;
+	}
+}

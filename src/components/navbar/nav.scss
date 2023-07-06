@@ -18,6 +18,24 @@
 		flex-direction: column;
 		justify-content: space-between;
 		height: 20rem;
+
+		.navlink {
+			path {
+				transition: all 0.3s linear;
+			}
+			:hover {
+				path {
+					fill: $primary-white;
+				}
+			}
+		}
+
+		.navlink-active {
+			path {
+				transition: all 0.3s linear;
+				fill: $primary-red;
+			}
+		}
 	}
 
 	&-avatar-container {

@@ -1,30 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './nav.scss';
+import { links } from '../../utilities/constants/linksSVG.jsx';
 
 const Nav = () => {
-	const links = [
-		{ path: '/', src: '/assets/icon-nav-home.svg', alt: 'home', id: 1 },
-		{
-			path: '/movies',
-			src: '/assets/icon-nav-movies.svg',
-			alt: 'movies',
-			id: 2,
-		},
-		{
-			path: '/tv-series',
-			src: '/assets/icon-nav-tv-series.svg',
-			alt: 'tv',
-			id: 3,
-		},
-		{
-			path: '/bookmarks',
-			src: '/assets/icon-nav-bookmark.svg',
-			alt: 'bookmark',
-			id: 4,
-		},
-	];
-
 	return (
 		<nav className='navbar'>
 			<div className='navbar-logo-container'>
@@ -32,8 +11,22 @@ const Nav = () => {
 			</div>
 			<div className='navbar-links-container'>
 				{links.map((link) => (
-					<NavLink key={link.id} to={link.path}>
-						<img src={link.src} alt={link.alt} />
+					<NavLink
+						key={link.id}
+						to={link.path}
+						// className={({ isActive, isPending }) =>
+						// 	isActive ? 'activeNavlink' : ''
+						// }
+						className={({ isActive, isPending }) =>
+							isPending
+								? 'navlink-pending'
+								: isActive
+								? 'navlink-active'
+								: 'navlink'
+						}
+						end
+					>
+						{link.svg}
 					</NavLink>
 				))}
 			</div>
