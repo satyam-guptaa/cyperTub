@@ -1,7 +1,11 @@
 import React, { useRef } from 'react';
-import ThumbnailCard from '../thumbnailCard/ThumbnailCard';
+import TrendingCard from '../trendingCard/TrendingCard';
 import './carousel.scss';
-import { TRENDING_TYPE_THUMBNAIL_LG } from '../../utilities/constants/appconstants';
+import {
+	TRENDING_TYPE_THUMBNAIL_LG,
+	LEFT_DIRECTION,
+	RIGHT_DIRECTION,
+} from '../../utilities/constants/appconstants';
 
 const Carousel = ({ data }) => {
 	const carouselBoxRef = useRef(null);
@@ -10,10 +14,10 @@ const Carousel = ({ data }) => {
 		const carouselBox = carouselBoxRef.current;
 		const carouselWidth = carouselBox.clientWidth;
 
-		if (direction === 'left') {
+		if (direction === LEFT_DIRECTION) {
 			carouselBox.scrollLeft -= carouselWidth;
 		}
-		if (direction === 'right') {
+		if (direction === RIGHT_DIRECTION) {
 			carouselBox.scrollLeft += carouselWidth;
 		}
 	};
@@ -21,20 +25,20 @@ const Carousel = ({ data }) => {
 		<div className='carousel-container'>
 			<button
 				className='carousel-container-arrow carousel-container-arrow-left'
-				onClick={() => handleScroll('left')}
+				onClick={() => handleScroll(LEFT_DIRECTION)}
 			>
 				&lt;
 			</button>
 			<button
 				className='carousel-container-arrow carousel-container-arrow-right'
-				onClick={() => handleScroll('right')}
+				onClick={() => handleScroll(RIGHT_DIRECTION)}
 			>
 				&gt;
 			</button>
 			<div className='thumbnails' ref={carouselBoxRef}>
 				{data &&
 					data.map((item) => (
-						<ThumbnailCard
+						<TrendingCard
 							key={item.title}
 							item={item}
 							type={TRENDING_TYPE_THUMBNAIL_LG}

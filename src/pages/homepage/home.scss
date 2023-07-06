@@ -1,11 +1,24 @@
 @import '../../stylesheet/main.scss';
 
 .home {
+	width: 85vw;
 	&-trending-section {
 		h1 {
 			margin-top: 3.5rem;
 			margin-bottom: 2.5rem;
 			@include font-hlg-light;
+		}
+	}
+	&-recommended-section {
+		h1 {
+			margin-top: 4rem;
+			margin-bottom: 3.2rem;
+			@include font-hlg-light;
+		}
+		&-cards-container {
+			display: grid;
+			gap: 3rem 4rem;
+			grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
 		}
 	}
 }

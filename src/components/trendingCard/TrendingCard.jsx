@@ -1,8 +1,8 @@
 import React from 'react';
-import './thumbnailCard.scss';
+import './trendingCard.scss';
 import { TRENDING_TYPE_THUMBNAIL_LG } from '../../utilities/constants/appconstants';
 
-const ThumbnailCard = ({ item, type }) => {
+const TrendingCard = ({ item, type }) => {
 	const getThumbnailImg = () => {
 		let thumbnail;
 		switch (type) {
@@ -22,7 +22,7 @@ const ThumbnailCard = ({ item, type }) => {
 		backgroundPosition: 'center',
 	};
 
-	return <div className='thumbnail' style={style}></div>;
+	return <article className='thumbnail' style={style}></article>;
 };
 
-export default ThumbnailCard;
+export default TrendingCard;
