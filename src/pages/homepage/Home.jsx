@@ -11,17 +11,9 @@ import Card from '../../components/regularCard/Card';
 
 const Home = () => {
 	const { data } = useSelector((state) => state.appData);
-	const dispatch = useDispatch();
 	const trendingCollection = useMemo(() => {
 		return data.filter((item) => item.isTrending);
 	}, [data]);
-
-	useEffect(() => {
-		//to prevent refetching on each rerender except the reload of page
-		if (data.length === 0) {
-			dispatch(fetchAppData());
-		}
-	}, []);
 
 	return (
 		<section className='home'>
@@ -33,13 +25,13 @@ const Home = () => {
 			</article>
 			<article className='home-recommended-section'>
 				<h1>{RECOMMENDED_HEADING}</h1>
-				<div className='home-recommended-section-cards-container'>
+				<section className='cards-container'>
 					{data &&
 						data.length > 0 &&
 						data.map((item) => {
-							return <Card cardData={item} />;
+							return <Card key={item.title} cardData={item} />;
 						})}
-				</div>
+				</section>
 			</article>
 		</section>
 	);

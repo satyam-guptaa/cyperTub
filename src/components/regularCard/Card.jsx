@@ -8,11 +8,36 @@ const Card = ({ cardData }) => {
 		backgroundRepeat: 'no-repeat',
 		backgroundPosition: 'center',
 	};
-	console.log(cardData);
+
+	const renderDetails = (year, category, rating) => {
+		return (
+			<>
+				<div className='detail'>{year}</div>
+				<div className='detail detail-category'>
+					{category === 'Movie' ? (
+						<img src='/assets/icon-category-movie.svg' />
+					) : (
+						<img src='/assets/icon-category-tv.svg' />
+					)}
+					{category}
+				</div>
+				<div className='detail'>{rating}</div>
+			</>
+		);
+	};
+
 	return (
-		<div className='card'>
+		<article className='card'>
 			<div className='card-img' style={style}></div>
-		</div>
+			<div className='card-details'>
+				{renderDetails(
+					cardData.year,
+					cardData.category,
+					cardData.rating
+				)}
+			</div>
+			<h2 className='card-title'>{cardData.title}</h2>
+		</article>
 	);
 };
 

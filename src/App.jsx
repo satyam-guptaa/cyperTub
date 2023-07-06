@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.scss';
 import Nav from './components/navbar/Nav';
 import Movies from './pages/moviespage/Movies';
@@ -7,8 +8,15 @@ import Home from './pages/homepage/Home';
 import Tv from './pages/tvseriespage/Tv';
 import Bookmark from './pages/bookmarkpage/Bookmark';
 import Search from './components/searchbar/Search';
+import { fetchAppData } from './store/appDataSlice';
 
 function App() {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchAppData());
+	}, []);
+
 	return (
 		<div className='app'>
 			<Nav />

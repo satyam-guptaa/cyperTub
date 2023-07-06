@@ -15,10 +15,5 @@
 			margin-bottom: 3.2rem;
 			@include font-hlg-light;
 		}
-		&-cards-container {
-			display: grid;
-			gap: 3rem 4rem;
-			grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
-		}
 	}
 }
