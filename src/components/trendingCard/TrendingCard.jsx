@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { bookmark } from '../../store/appDataSlice';
 import './trendingCard.scss';
+import {
+	bookmarkSVG,
+	bookmarkSVGFull,
+} from '../../utilities/constants/bookmarkSVGs';
 
 const TrendingCard = ({ item }) => {
 	const dispatch = useDispatch();
@@ -41,11 +45,7 @@ const TrendingCard = ({ item }) => {
 				className='thumbnail-img-bookmark'
 				onClick={handleOnBookmark}
 			>
-				{item.isBookmarked ? (
-					<img src='/assets/icon-bookmark-full.svg' alt='bookmark' />
-				) : (
-					<img src='/assets/icon-bookmark-empty.svg' alt='bookmark' />
-				)}
+				{item.isBookmarked ? bookmarkSVGFull : bookmarkSVG}
 			</button>
 			<div className='thumbnail-details-container'>
 				<div className='thumbnail-details'>

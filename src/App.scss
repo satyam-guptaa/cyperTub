@@ -14,4 +14,11 @@
 		gap: 3rem 4rem;
 		grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
 	}
+
+	.section-container {
+		h1 {
+			@include font-hlg-light;
+			margin-top: 4rem;
+		}
+	}
 }

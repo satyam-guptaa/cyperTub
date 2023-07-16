@@ -1,19 +1,24 @@
 import React from 'react';
 import './movies.scss';
-import { MOVIES_HEADING } from '../../utilities/constants/appconstants';
+import {
+	MOVIES_HEADING,
+	MOVIE_TYPE,
+} from '../../utilities/constants/appconstants';
 import Card from '../../components/regularCard/Card';
 import { useSelector } from 'react-redux';
+import Search from '../../components/searchbar/Search';
 
 const Movies = () => {
 	const { data } = useSelector((state) => state.appData);
-	const moviesData = data.filter((item) => item.category === 'Movie');
+	const moviesData = data.filter((item) => item.category === MOVIE_TYPE);
 
 	return (
-		<section className='movies'>
+		<section className='section-container'>
+			<Search />
 			<h1>{MOVIES_HEADING}</h1>
 			<div className='cards-container'>
 				{moviesData.map((movie) => {
-					return <Card cardData={movie} />;
+					return <Card key={movie.title} cardData={movie} />;
 				})}
 			</div>
 		</section>

@@ -5,7 +5,7 @@ import { INPUT_PLACEHOLDER } from '../../utilities/constants/appconstants';
 const Search = () => {
 	const [focus, setFocus] = useState(false);
 	return (
-		<section className='searchbar'>
+		<div className='searchbar'>
 			<img src='/assets/icon-search.svg' alt='search' />
 			<input
 				className='searchbar-input'
@@ -15,7 +15,7 @@ const Search = () => {
 				onBlur={() => setFocus(false)}
 			/>
 			<div className={`${focus ? 'searchbar-underline' : ''}`}></div>
-		</section>
+		</div>
 	);
 };
 
