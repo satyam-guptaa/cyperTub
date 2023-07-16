@@ -1,12 +1,12 @@
 html {
 	font-size: 10px;
-	// @media (width <= 450px) {
-	// 	font-size: 12px;
-	// }
-	// @media (width <= 900px) {
-	// 	font-size: 14px;
-	// }
-	// // overflow-x: hidden;
+	@media (width <= 450px) {
+		font-size: 8px;
+	}
+	@media (width <= 900px) {
+		font-size: 9px;
+	}
+	// overflow-x: hidden;
 }
 
 * {

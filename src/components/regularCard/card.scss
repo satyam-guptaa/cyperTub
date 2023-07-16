@@ -1,6 +1,67 @@
+@import '../../stylesheet/main.scss';
+
 .card {
+	position: relative;
+	width: 28rem;
+	height: 22.6rem;
 	&-img {
-		width: 28rem;
-		height: 17.4rem;
+		position: relative;
+		img {
+			border-radius: 0.8rem;
+			width: 28rem;
+			height: 17.4rem;
+			object-fit: cover;
+		}
+	}
+
+	&-img-bookmark {
+		position: absolute;
+		width: 3.2rem;
+		height: 3.2rem;
+		top: 1.6rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: rgba($color: #000000, $alpha: 0.5);
+		border-radius: 50%;
+		right: 2.4rem;
+	}
+
+	&-title {
+		@include font-hxs-medium;
+	}
+
+	&-details {
+		display: flex;
+		gap: 1.9rem;
+		height: 1.6rem;
+		margin-top: 0.8rem;
+		margin-bottom: 0.5rem;
+		@include font-bsm-light;
+		> div {
+			position: relative;
+			//except last child, all the child
+			&:not(:last-child) {
+				&::after {
+					position: absolute;
+					display: inline-block;
+					content: '';
+					top: 50%;
+					transform: translateY(-50%);
+					border-radius: 50%;
+					right: -1.1rem;
+					width: 0.3rem;
+					height: 0.3rem;
+					background-color: #fff;
+				}
+			}
+		}
+		.detail-category {
+			display: flex;
+			align-items: center;
+			img {
+				margin-right: 0.6rem;
+			}
+		}
 	}
 }

@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import TrendingCard from '../trendingCard/TrendingCard';
 import './carousel.scss';
 import {
-	TRENDING_TYPE_THUMBNAIL_LG,
 	LEFT_DIRECTION,
 	RIGHT_DIRECTION,
 } from '../../utilities/constants/appconstants';
@@ -38,11 +37,7 @@ const Carousel = ({ data }) => {
 			<div className='thumbnails' ref={carouselBoxRef}>
 				{data &&
 					data.map((item) => (
-						<TrendingCard
-							key={item.title}
-							item={item}
-							type={TRENDING_TYPE_THUMBNAIL_LG}
-						/>
+						<TrendingCard key={item.title} item={item} />
 					))}
 			</div>
 		</div>

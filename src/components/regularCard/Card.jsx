@@ -1,18 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { bookmark } from '../../store/appDataSlice';
 import './card.scss';
 
 const Card = ({ cardData }) => {
-	const style = {
-		backgroundImage: `url(${cardData.thumbnail.regular.medium})`,
-		backgroundSize: 'cover',
-		backgroundRepeat: 'no-repeat',
-		backgroundPosition: 'center',
+	const dispatch = useDispatch();
+
+	const renderDetails = (year, category, rating) => {
+		//created a resuable funtion so that for each info it attaches the disc automatically avoiding repeatition
+		return (
+			<>
+				<div className='detail'>{year}</div>
+				<div className='detail detail-category'>
+					{category === 'Movie' ? (
+						<img src='/assets/icon-category-movie.svg' />
+					) : (
+						<img src='/assets/icon-category-tv.svg' />
+					)}
+					{category}
+				</div>
+				<div className='detail'>{rating}</div>
+			</>
+		);
 	};
-	console.log(cardData);
+
+	const handleOnBookmark = () => {
+		dispatch(
+			bookmark({
+				title: cardData.title,
+				bookmarked: !cardData.isBookmarked,
+			})
+		);
+	};
+
 	return (
-		<div className='card'>
-			<div className='card-img' style={style}></div>
-		</div>
+		<article className='card'>
+			<div className='card-img'>
+				<img src={cardData.thumbnail.regular.medium} alt='thumbnail' />
+			</div>
+			<button className='card-img-bookmark' onClick={handleOnBookmark}>
+				{cardData.isBookmarked ? (
+					<img src='/assets/icon-bookmark-full.svg' alt='bookmark' />
+				) : (
+					<img src='/assets/icon-bookmark-empty.svg' alt='bookmark' />
+				)}
+			</button>
+			<div className='card-details'>
+				{renderDetails(
+					cardData.year,
+					cardData.category,
+					cardData.rating
+				)}
+			</div>
+			<h2 className='card-title'>{cardData.title}</h2>
+		</article>
 	);
 };
 
