@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { bookmark } from '../../store/appDataSlice';
 import './card.scss';
+import {
+	bookmarkSVG,
+	bookmarkSVGFull,
+} from '../../utilities/constants/bookmarkSVGs';
 
 const Card = ({ cardData }) => {
 	const dispatch = useDispatch();
@@ -36,14 +40,14 @@ const Card = ({ cardData }) => {
 	return (
 		<article className='card'>
 			<div className='card-img'>
-				<img src={cardData.thumbnail.regular.medium} alt='thumbnail' />
+				<img
+					src={cardData.thumbnail.regular.medium}
+					alt='thumbnail'
+					loading='lazy'
+				/>
 			</div>
 			<button className='card-img-bookmark' onClick={handleOnBookmark}>
-				{cardData.isBookmarked ? (
-					<img src='/assets/icon-bookmark-full.svg' alt='bookmark' />
-				) : (
-					<img src='/assets/icon-bookmark-empty.svg' alt='bookmark' />
-				)}
+				{cardData.isBookmarked ? bookmarkSVGFull : bookmarkSVG}
 			</button>
 			<div className='card-details'>
 				{renderDetails(

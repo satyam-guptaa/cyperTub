@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Card from '../../components/regularCard/Card';
+import Search from '../../components/searchbar/Search';
 import './bookmark.scss';
 import {
 	BOOKMARK_MOVIE_HEADING,
@@ -18,7 +19,8 @@ const Bookmark = () => {
 		(item) => item.isBookmarked && item.category === TV_TYPE
 	);
 	return (
-		<section className='bookmarks'>
+		<section className='section-container'>
+			<Search />
 			<h1>{BOOKMARK_MOVIE_HEADING}</h1>
 			<div className='cards-container'>
 				{bookmarkMovieData.map((movie) => {

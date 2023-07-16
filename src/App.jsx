@@ -7,7 +7,6 @@ import Movies from './pages/moviespage/Movies';
 import Home from './pages/homepage/Home';
 import Tv from './pages/tvseriespage/Tv';
 import Bookmark from './pages/bookmarkpage/Bookmark';
-import Search from './components/searchbar/Search';
 import { fetchAppData } from './store/appDataSlice';
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
 		<div className='app'>
 			<Nav />
 			<div className='app-content'>
-				<Search />
 				<Routes>
 					<Route path='/' element={<Home />}></Route>
 					<Route path='/movies' element={<Movies />}></Route>
