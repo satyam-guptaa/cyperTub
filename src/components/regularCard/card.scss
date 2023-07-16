@@ -1,13 +1,30 @@
 @import '../../stylesheet/main.scss';
 
 .card {
+	position: relative;
+	width: 28rem;
+	height: 22.6rem;
 	&-img {
+		position: relative;
 		img {
 			border-radius: 0.8rem;
 			width: 28rem;
 			height: 17.4rem;
 			object-fit: cover;
 		}
+	}
+
+	&-img-bookmark {
+		position: absolute;
+		width: 3.2rem;
+		height: 3.2rem;
+		top: 1.6rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: rgba($color: #000000, $alpha: 0.5);
+		border-radius: 50%;
+		right: 2.4rem;
 	}
 
 	&-title {

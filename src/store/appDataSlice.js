@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { GET_DATA } from '../utilities/constants/appconstants';
 import axios from 'axios';
 
-const initialState = { data: [], loading: false, error: null };
+const initialState = { data: [], bookmarks: [], loading: false, error: null };
 
 export const fetchAppData = createAsyncThunk(
 	'appData/fetchAppData',
@@ -18,7 +18,16 @@ export const fetchAppData = createAsyncThunk(
 export const appDataSlice = createSlice({
 	name: 'appData',
 	initialState,
-	reducers: {},
+	reducers: {
+		bookmark(state, action) {
+			const updatedData = state.data.map((item) => {
+				if (item.title === action.payload.title)
+					item.isBookmarked = action.payload.bookmarked;
+				return item;
+			});
+			state.data = updatedData;
+		},
+	},
 	extraReducers: (builder) => {
 		builder.addCase(fetchAppData.pending, (state, action) => {
 			state.loading = true;
@@ -34,4 +43,5 @@ export const appDataSlice = createSlice({
 	},
 });
 
+export const { bookmark } = appDataSlice.actions;
 export default appDataSlice.reducer;

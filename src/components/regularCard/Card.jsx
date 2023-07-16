@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { bookmark } from '../../store/appDataSlice';
 import './card.scss';
 
 const Card = ({ cardData }) => {
+	const dispatch = useDispatch();
+
 	const renderDetails = (year, category, rating) => {
 		//created a resuable funtion so that for each info it attaches the disc automatically avoiding repeatition
 		return (
@@ -20,11 +24,27 @@ const Card = ({ cardData }) => {
 		);
 	};
 
+	const handleOnBookmark = () => {
+		dispatch(
+			bookmark({
+				title: cardData.title,
+				bookmarked: !cardData.isBookmarked,
+			})
+		);
+	};
+
 	return (
 		<article className='card'>
 			<div className='card-img'>
 				<img src={cardData.thumbnail.regular.medium} alt='thumbnail' />
 			</div>
+			<button className='card-img-bookmark' onClick={handleOnBookmark}>
+				{cardData.isBookmarked ? (
+					<img src='/assets/icon-bookmark-full.svg' alt='bookmark' />
+				) : (
+					<img src='/assets/icon-bookmark-empty.svg' alt='bookmark' />
+				)}
+			</button>
 			<div className='card-details'>
 				{renderDetails(
 					cardData.year,
