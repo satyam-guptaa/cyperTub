@@ -2,14 +2,8 @@ import React from 'react';
 import './card.scss';
 
 const Card = ({ cardData }) => {
-	const style = {
-		backgroundImage: `url(${cardData.thumbnail.regular.medium})`,
-		backgroundSize: 'cover',
-		backgroundRepeat: 'no-repeat',
-		backgroundPosition: 'center',
-	};
-
 	const renderDetails = (year, category, rating) => {
+		//created a resuable funtion so that for each info it attaches the disc automatically avoiding repeatition
 		return (
 			<>
 				<div className='detail'>{year}</div>
@@ -28,7 +22,9 @@ const Card = ({ cardData }) => {
 
 	return (
 		<article className='card'>
-			<div className='card-img' style={style}></div>
+			<div className='card-img'>
+				<img src={cardData.thumbnail.regular.medium} alt='thumbnail' />
+			</div>
 			<div className='card-details'>
 				{renderDetails(
 					cardData.year,

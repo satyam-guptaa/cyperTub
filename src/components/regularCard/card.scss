@@ -2,9 +2,12 @@
 
 .card {
 	&-img {
-		border-radius: 0.8rem;
-		width: 28rem;
-		height: 17.4rem;
+		img {
+			border-radius: 0.8rem;
+			width: 28rem;
+			height: 17.4rem;
+			object-fit: cover;
+		}
 	}
 
 	&-title {

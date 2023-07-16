@@ -4,6 +4,5 @@ export const TRENDING_HEADING = 'Trending';
 export const RECOMMENDED_HEADING = 'Recommended for you';
 export const MOVIES_HEADING = 'Movies';
 export const TV_HEADING = 'TV Series';
-export const TRENDING_TYPE_THUMBNAIL_LG = 'trending-lg';
 export const LEFT_DIRECTION = 'left';
 export const RIGHT_DIRECTION = 'right';

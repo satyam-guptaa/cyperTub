@@ -1,5 +1,8 @@
 .thumbnail {
-	flex-shrink: 0;
-	width: 47rem;
-	height: 23rem;
+	img {
+		border-radius: 0.8rem;
+		width: 47rem;
+		height: 23rem;
+		object-fit: cover;
+	}
 }
