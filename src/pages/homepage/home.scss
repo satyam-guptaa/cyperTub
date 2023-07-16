@@ -8,6 +8,11 @@
 			margin-bottom: 2.5rem;
 			@include font-hlg-light;
 		}
+
+		&-placeholder {
+			display: flex;
+			gap: 6.4rem;
+		}
 	}
 	&-recommended-section {
 		h1 {

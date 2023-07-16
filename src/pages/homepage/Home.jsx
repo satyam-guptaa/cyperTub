@@ -6,8 +6,9 @@ import {
 	TRENDING_HEADING,
 	RECOMMENDED_HEADING,
 } from '../../utilities/constants/appconstants';
-import Card from '../../components/regularCard/Card';
 import Search from '../../components/searchbar/Search';
+import PlaceholderCard from '../../components/placeholders/PlaceholderCard';
+import RenderCards from '../../components/card-helper/RenderCards.jsx';
 
 const Home = () => {
 	const { data } = useSelector((state) => state.appData);
@@ -20,18 +21,19 @@ const Home = () => {
 			<Search />
 			<article className='home-trending-section'>
 				<h1>{TRENDING_HEADING}</h1>
-				{trendingCollection && trendingCollection.length > 0 && (
+				{trendingCollection && trendingCollection.length > 0 ? (
 					<Carousel data={trendingCollection} />
+				) : (
+					<div className='home-trending-section-placeholder'>
+						<PlaceholderCard type='large' />
+						<PlaceholderCard type='large' />
+					</div>
 				)}
 			</article>
 			<article className='home-recommended-section'>
 				<h1>{RECOMMENDED_HEADING}</h1>
 				<section className='cards-container'>
-					{data &&
-						data.length > 0 &&
-						data.map((item) => {
-							return <Card key={item.title} cardData={item} />;
-						})}
+					<RenderCards items={data} />
 				</section>
 			</article>
 		</section>

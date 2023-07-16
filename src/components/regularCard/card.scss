@@ -4,13 +4,50 @@
 	position: relative;
 	width: 28rem;
 	height: 22.6rem;
+
 	&-img {
+		width: 28rem;
+		height: 17.4rem;
 		position: relative;
+		border-radius: 0.8rem;
+		background-image: url('/assets/placeholder.png');
+		background-size: cover;
+		background-position: center;
 		img {
-			border-radius: 0.8rem;
 			width: 28rem;
+			border-radius: 0.8rem;
 			height: 17.4rem;
 			object-fit: cover;
+			opacity: 0;
+			transition: opacity 200ms ease-in-out;
+		}
+	}
+
+	&-img::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: 0.8rem;
+		animation: pulse 2.5s infinite;
+	}
+	&-img-loaded {
+		img {
+			opacity: 1;
+		}
+		&::before {
+			content: none;
+		}
+	}
+
+	@keyframes pulse {
+		0% {
+			background-color: rgba($color: #fff, $alpha: 0);
+		}
+		50% {
+			background-color: rgba($color: #fff, $alpha: 0.1);
+		}
+		100% {
+			background-color: rgba($color: #fff, $alpha: 0);
 		}
 	}
 

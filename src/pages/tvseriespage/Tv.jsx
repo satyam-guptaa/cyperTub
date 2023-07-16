@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { TV_HEADING, TV_TYPE } from '../../utilities/constants/appconstants';
-import Card from '../../components/regularCard/Card';
 import Search from '../../components/searchbar/Search';
+import RenderCards from '../../components/card-helper/RenderCards.jsx';
 
 const TV = () => {
 	const { data } = useSelector((state) => state.appData);
@@ -13,9 +13,7 @@ const TV = () => {
 			<Search />
 			<h1>{TV_HEADING}</h1>
 			<div className='cards-container'>
-				{tvData.map((tv) => {
-					return <Card key={tv.title} cardData={tv} />;
-				})}
+				<RenderCards items={tvData} />
 			</div>
 		</section>
 	);

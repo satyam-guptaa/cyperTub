@@ -2,12 +2,36 @@
 
 .thumbnail {
 	position: relative;
+	background-image: url('assets/placeholder.png');
+	border-radius: 0.8rem;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: 0.8rem;
+		//pulse getting reused from regular cards scss
+		animation: pulse 2.5s infinite;
+	}
+
 	&-img-trending {
 		border-radius: 0.8rem;
 		width: 47rem;
 		height: 23rem;
+		opacity: 0;
 		object-fit: cover;
+		transition: opacity 200ms ease-in-out;
 	}
+
+	&-loaded {
+		img {
+			opacity: 1;
+		}
+		&::before {
+			content: none;
+		}
+	}
+
 	&-img-bookmark {
 		position: absolute;
 		width: 3.2rem;
