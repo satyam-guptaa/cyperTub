@@ -4,9 +4,9 @@ import {
 	MOVIES_HEADING,
 	MOVIE_TYPE,
 } from '../../utilities/constants/appconstants';
-import Card from '../../components/regularCard/Card';
 import { useSelector } from 'react-redux';
 import Search from '../../components/searchbar/Search';
+import RenderCards from '../../components/card-helper/RenderCards.jsx';
 
 const Movies = () => {
 	const { data } = useSelector((state) => state.appData);
@@ -17,9 +17,7 @@ const Movies = () => {
 			<Search />
 			<h1>{MOVIES_HEADING}</h1>
 			<div className='cards-container'>
-				{moviesData.map((movie) => {
-					return <Card key={movie.title} cardData={movie} />;
-				})}
+				<RenderCards items={moviesData} />
 			</div>
 		</section>
 	);

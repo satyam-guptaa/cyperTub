@@ -9,6 +9,7 @@ import {
 
 const TrendingCard = ({ item }) => {
 	const dispatch = useDispatch();
+	const [imgLoaded, setImgLoaded] = useState(false);
 
 	const handleOnBookmark = () => {
 		dispatch(
@@ -35,11 +36,13 @@ const TrendingCard = ({ item }) => {
 	};
 
 	return (
-		<article className='thumbnail'>
+		<article className={`thumbnail ${imgLoaded ? 'thumbnail-loaded' : ''}`}>
 			<img
 				src={item.thumbnail.trending.large}
 				className='thumbnail-img-trending'
 				alt='trending img'
+				loading='lazy'
+				onLoad={() => setImgLoaded(true)}
 			/>
 			<button
 				className='thumbnail-img-bookmark'

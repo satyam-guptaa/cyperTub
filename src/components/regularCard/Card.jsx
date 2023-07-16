@@ -9,7 +9,7 @@ import {
 
 const Card = ({ cardData }) => {
 	const dispatch = useDispatch();
-
+	const [imgLoaded, setImgLoaded] = useState(false);
 	const renderDetails = (year, category, rating) => {
 		//created a resuable funtion so that for each info it attaches the disc automatically avoiding repeatition
 		return (
@@ -39,10 +39,13 @@ const Card = ({ cardData }) => {
 
 	return (
 		<article className='card'>
-			<div className='card-img'>
+			<div className={`card-img ${imgLoaded ? 'card-img-loaded' : ''}`}>
 				<img
-					src={cardData.thumbnail.regular.medium}
+					src={cardData.thumbnail.regular.large}
 					alt='thumbnail'
+					onLoad={() => {
+						setImgLoaded(true);
+					}}
 					loading='lazy'
 				/>
 			</div>
