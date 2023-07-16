@@ -1,0 +1,8 @@
+@import '../../stylesheet/main.scss';
+
+.bookmarks {
+	h1 {
+		@include font-hlg-light;
+		margin-top: 4rem;
+	}
+}
