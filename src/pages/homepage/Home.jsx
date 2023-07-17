@@ -26,7 +26,6 @@ const Home = () => {
 				) : (
 					<div className='home-trending-section-placeholder'>
 						<PlaceholderCard type='large' />
-						<PlaceholderCard type='large' />
 					</div>
 				)}
 			</article>

@@ -7,8 +7,6 @@ const RenderCards = ({ items }) => {
 	) : (
 		<>
 			<PlaceholderCard type='small' />
-			<PlaceholderCard type='small' />
-			<PlaceholderCard type='small' />
 		</>
 	);
 };

@@ -56,6 +56,12 @@ const TrendingCard = ({ item }) => {
 				</div>
 				<h2>{item.title}</h2>
 			</div>
+			<div className='thumbnail-play-container'>
+				<button className='play-button'>
+					<img src='/assets/icon-play.svg' alt='play' />
+					<span>Play</span>
+				</button>
+			</div>
 		</article>
 	);
 };
