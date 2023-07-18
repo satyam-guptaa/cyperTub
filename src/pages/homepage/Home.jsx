@@ -45,7 +45,7 @@ const Home = () => {
 					/>
 					{data.length > 0 &&
 						filteredData.length === 0 &&
-						inputVal && <p>No Results</p>}
+						inputVal && <p>No Results found here for {inputVal}</p>}
 				</section>
 			</article>
 		</section>

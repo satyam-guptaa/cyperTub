@@ -37,7 +37,7 @@ const Bookmark = () => {
 				/>
 				{data.length > 0 &&
 					bookmarkMovieData.length === 0 &&
-					inputVal && <p>No Results</p>}
+					inputVal && <p>No Results found here for {inputVal}</p>}
 			</div>
 			<h1>{BOOKMARK_TV_HEADING}</h1>
 			<div className='cards-container'>
@@ -46,7 +46,7 @@ const Bookmark = () => {
 					noAppData={data.length === 0}
 				/>
 				{data.length > 0 && bookmarkTVData.length === 0 && inputVal && (
-					<p>No Results</p>
+					<p>No Results found here for {inputVal}</p>
 				)}
 			</div>
 		</section>

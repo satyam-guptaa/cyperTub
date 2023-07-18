@@ -29,10 +29,10 @@ const TV = () => {
 					items={filteredData}
 					noAppData={tvData.length === 0}
 				/>
+				{data.length > 0 && filteredData.length === 0 && inputVal && (
+					<p>No Results found here for {inputVal}</p>
+				)}
 			</div>
-			{data.length > 0 && filteredData.length === 0 && inputVal && (
-				<p>No Results</p>
-			)}
 		</section>
 	);
 };
