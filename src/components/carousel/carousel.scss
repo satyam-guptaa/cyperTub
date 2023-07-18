@@ -4,6 +4,11 @@
 	position: relative;
 	height: 23rem;
 	overflow: hidden;
+	width: 86vw;
+
+	@include ipad {
+		width: auto;
+	}
 	&-arrow {
 		position: absolute;
 		padding: 1rem;

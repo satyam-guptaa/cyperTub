@@ -13,6 +13,10 @@
 		height: 3rem;
 		caret-color: $primary-red;
 		@include font-hmd-light;
+
+		@include ipad {
+			width: 95%;
+		}
 	}
 
 	&-underline {

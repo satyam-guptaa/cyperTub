@@ -4,6 +4,11 @@
 	display: flex;
 	margin-bottom: 3.2rem;
 
+	@include ipad {
+		flex-direction: column;
+		margin: 2.5rem;
+	}
+
 	&-content {
 		flex: 1;
 	}
@@ -11,8 +16,16 @@
 	.cards-container {
 		margin-top: 3.8rem;
 		display: grid;
-		gap: 3rem 4rem;
-		grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+		gap: 3rem 1.5rem;
+		grid-template-columns: repeat(3, 1fr);
+
+		@include mobile {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include xlarge {
+			grid-template-columns: repeat(4, 1fr);
+		}
 	}
 
 	.section-container {
