@@ -1,19 +1,37 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { TV_HEADING, TV_TYPE } from '../../utilities/constants/appconstants';
+import {
+	TV_HEADING,
+	TV_INPUT_PLACEHOLDER,
+	TV_TYPE,
+} from '../../utilities/constants/appconstants';
 import Search from '../../components/searchbar/Search';
 import RenderCards from '../../components/card-helper/RenderCards.jsx';
+import { useFilter } from '../../hooks/useFilter';
 
 const TV = () => {
 	const { data } = useSelector((state) => state.appData);
-	const tvData = data.filter((item) => item.category === TV_TYPE);
+	const tvData = useMemo(() => {
+		return data.filter((item) => item.category === TV_TYPE);
+	}, [data]);
+	const [filteredData, handleOnChange, inputVal] = useFilter(tvData);
 
 	return (
 		<section className='section-container'>
-			<Search />
+			<Search
+				placeholder={TV_INPUT_PLACEHOLDER}
+				onChange={handleOnChange}
+				value={inputVal}
+			/>
 			<h1>{TV_HEADING}</h1>
 			<div className='cards-container'>
-				<RenderCards items={tvData} />
+				<RenderCards
+					items={filteredData}
+					noAppData={tvData.length === 0}
+				/>
+				{data.length > 0 && filteredData.length === 0 && inputVal && (
+					<p>No Results found here for {inputVal}</p>
+				)}
 			</div>
 		</section>
 	);
