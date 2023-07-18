@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './search.scss';
-import { INPUT_PLACEHOLDER } from '../../utilities/constants/appconstants';
 
-const Search = () => {
+const Search = ({ placeholder, value, onChange }) => {
 	const [focus, setFocus] = useState(false);
 	return (
 		<div className='searchbar'>
@@ -10,7 +9,9 @@ const Search = () => {
 			<input
 				className='searchbar-input'
 				type='text'
-				placeholder={INPUT_PLACEHOLDER}
+				value={value}
+				placeholder={placeholder}
+				onChange={onChange}
 				onFocus={() => setFocus(true)}
 				onBlur={() => setFocus(false)}
 			/>
