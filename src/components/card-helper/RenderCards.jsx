@@ -1,13 +1,11 @@
 import PlaceholderCard from '../placeholders/PlaceholderCard';
 import Card from '../regularCard/Card';
 
-const RenderCards = ({ items }) => {
+const RenderCards = ({ items, noAppData }) => {
 	return items && items.length > 0 ? (
 		items.map((item) => <Card key={item.title} cardData={item} />)
 	) : (
-		<>
-			<PlaceholderCard type='small' />
-		</>
+		<>{noAppData && <PlaceholderCard type='small' />}</>
 	);
 };
 
