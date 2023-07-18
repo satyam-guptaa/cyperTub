@@ -43,11 +43,18 @@ const Card = ({ cardData }) => {
 				<img
 					src={cardData.thumbnail.regular.large}
 					alt='thumbnail'
+					className='thumbnail-image'
 					onLoad={() => {
 						setImgLoaded(true);
 					}}
 					loading='lazy'
 				/>
+				<div className='card-play-container'>
+					<button className='card-play-button'>
+						<img src='/assets/icon-play.svg' alt='play' />
+						<span>Play</span>
+					</button>
+				</div>
 			</div>
 			<button className='card-img-bookmark' onClick={handleOnBookmark}>
 				{cardData.isBookmarked ? bookmarkSVGFull : bookmarkSVG}

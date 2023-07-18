@@ -12,12 +12,25 @@
 	justify-content: space-between;
 	align-items: center;
 
+	@include ipad {
+		flex-direction: row;
+		width: auto;
+		height: 7.2rem;
+		margin: 0;
+	}
+
 	&-links-container {
 		margin: 7.5rem 0;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		height: 20rem;
+
+		@include ipad {
+			flex-direction: row;
+			width: 20rem;
+			height: auto;
+		}
 
 		.navlink {
 			path {
@@ -43,6 +56,10 @@
 		align-items: flex-end;
 		flex-grow: 1;
 		justify-self: flex-end;
+
+		@include ipad {
+			flex-grow: 0;
+		}
 
 		> button {
 			width: 4rem;
