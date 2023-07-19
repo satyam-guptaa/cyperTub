@@ -7,6 +7,7 @@ import {
 	bookmarkSVGFull,
 } from '../../utilities/constants/bookmarkSVGs';
 import { PLAY_LABEL } from '../../utilities/constants/appconstants';
+import { ToastContainer, toast } from 'react-toastify';
 
 const TrendingCard = ({ item }) => {
 	const dispatch = useDispatch();
@@ -16,6 +17,14 @@ const TrendingCard = ({ item }) => {
 		dispatch(
 			bookmark({ title: item.title, bookmarked: !item.isBookmarked })
 		);
+	};
+
+	const handlePlay = () => {
+		toast('Work in progress!!', {
+			type: 'info',
+			position: 'top-right',
+			toastId: 'WIP',
+		});
 	};
 
 	const renderDetails = (year, category, rating) => {
@@ -58,7 +67,7 @@ const TrendingCard = ({ item }) => {
 				<h2>{item.title}</h2>
 			</div>
 			<div className='thumbnail-play-container'>
-				<button className='play-button'>
+				<button className='play-button' onClick={handlePlay}>
 					<img src='/assets/icon-play.svg' alt='play' />
 					<span>{PLAY_LABEL}</span>
 				</button>
