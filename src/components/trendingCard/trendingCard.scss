@@ -123,8 +123,8 @@
 		button {
 			width: 11.7rem;
 			height: 4.8rem;
+			display: none;
 			border-radius: 2.85rem;
-			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			padding: 0.9rem;
@@ -139,6 +139,9 @@
 	&:hover {
 		.thumbnail-play-container {
 			opacity: 1;
+			button {
+				display: flex;
+			}
 		}
 	}
 }

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.scss';
 import Nav from './components/navbar/Nav';
 import Movies from './pages/moviespage/Movies';
@@ -8,6 +9,7 @@ import Home from './pages/homepage/Home';
 import Tv from './pages/tvseriespage/Tv';
 import Bookmark from './pages/bookmarkpage/Bookmark';
 import { fetchAppData } from './store/appDataSlice';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 	const dispatch = useDispatch();
@@ -18,6 +20,8 @@ function App() {
 
 	return (
 		<div className='app'>
+			{/* only to be displayed if any notification need to be sent */}
+			<ToastContainer limit={1} autoClose={1500} />
 			<Nav />
 			<div className='app-content'>
 				<Routes>

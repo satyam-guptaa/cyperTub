@@ -7,6 +7,7 @@ import {
 	bookmarkSVGFull,
 } from '../../utilities/constants/bookmarkSVGs';
 import { PLAY_LABEL } from '../../utilities/constants/appconstants';
+import { toast } from 'react-toastify';
 
 const Card = ({ cardData }) => {
 	const dispatch = useDispatch();
@@ -27,6 +28,14 @@ const Card = ({ cardData }) => {
 				<div className='detail'>{rating}</div>
 			</>
 		);
+	};
+
+	const handlePlay = () => {
+		toast('Work in progress!!', {
+			type: 'info',
+			position: 'top-right',
+			toastId: 'WIPcard',
+		});
 	};
 
 	const handleOnBookmark = () => {
@@ -51,7 +60,7 @@ const Card = ({ cardData }) => {
 					loading='lazy'
 				/>
 				<div className='card-play-container'>
-					<button className='card-play-button'>
+					<button className='card-play-button' onClick={handlePlay}>
 						<img src='/assets/icon-play.svg' alt='play' />
 						<span>{PLAY_LABEL}</span>
 					</button>
