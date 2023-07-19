@@ -7,7 +7,8 @@ html {
 	@media (width <= 450px) {
 		font-size: 6px;
 	}
-	// overflow-x: hidden;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
 }
 
 * {

@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import './home.scss';
-import Carousel from '../../components/carousel/Carousel';
 import {
 	TRENDING_HEADING,
 	RECOMMENDED_HEADING,
@@ -11,6 +10,7 @@ import Search from '../../components/searchbar/Search';
 import PlaceholderCard from '../../components/placeholders/PlaceholderCard';
 import RenderCards from '../../components/card-helper/RenderCards.jsx';
 import { useFilter } from '../../hooks/useFilter';
+import CarouselNew from '../../components/carousel';
 
 const Home = () => {
 	const { data } = useSelector((state) => state.appData);
@@ -29,7 +29,7 @@ const Home = () => {
 			<article className='home-trending-section'>
 				<h1>{TRENDING_HEADING}</h1>
 				{trendingCollection && trendingCollection.length > 0 ? (
-					<Carousel data={trendingCollection} />
+					<CarouselNew data={trendingCollection} />
 				) : (
 					<div className='home-trending-section-placeholder'>
 						<PlaceholderCard type='large' />
