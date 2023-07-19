@@ -25,4 +25,18 @@
 			@include font-hlg-light;
 		}
 	}
+	//to hide swiper button responsively
+	.swiper-button-next,
+	.swiper-button-prev {
+		display: none;
+		@include large {
+			display: block;
+		}
+	}
+
+	.swiper-pagination {
+		@include large {
+			display: none;
+		}
+	}
 }
