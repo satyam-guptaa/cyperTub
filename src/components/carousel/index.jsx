@@ -22,6 +22,10 @@ const CarouselNew = ({ data }) => {
 					spaceBetween: 10,
 				},
 				1000: {
+					slidesPerView: 2,
+					spaceBetween: 50,
+				},
+				1300: {
 					slidesPerView: 3,
 					spaceBetween: 50,
 				},
