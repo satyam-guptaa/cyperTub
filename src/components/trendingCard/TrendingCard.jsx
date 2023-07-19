@@ -6,6 +6,7 @@ import {
 	bookmarkSVG,
 	bookmarkSVGFull,
 } from '../../utilities/constants/bookmarkSVGs';
+import { PLAY_LABEL } from '../../utilities/constants/appconstants';
 
 const TrendingCard = ({ item }) => {
 	const dispatch = useDispatch();
@@ -59,7 +60,7 @@ const TrendingCard = ({ item }) => {
 			<div className='thumbnail-play-container'>
 				<button className='play-button'>
 					<img src='/assets/icon-play.svg' alt='play' />
-					<span>Play</span>
+					<span>{PLAY_LABEL}</span>
 				</button>
 			</div>
 		</article>

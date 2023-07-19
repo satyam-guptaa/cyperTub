@@ -6,6 +6,7 @@ import {
 	bookmarkSVG,
 	bookmarkSVGFull,
 } from '../../utilities/constants/bookmarkSVGs';
+import { PLAY_LABEL } from '../../utilities/constants/appconstants';
 
 const Card = ({ cardData }) => {
 	const dispatch = useDispatch();
@@ -52,7 +53,7 @@ const Card = ({ cardData }) => {
 				<div className='card-play-container'>
 					<button className='card-play-button'>
 						<img src='/assets/icon-play.svg' alt='play' />
-						<span>Play</span>
+						<span>{PLAY_LABEL}</span>
 					</button>
 				</div>
 			</div>
