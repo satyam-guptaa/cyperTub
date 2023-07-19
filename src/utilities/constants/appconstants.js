@@ -2,6 +2,7 @@ export const INPUT_PLACEHOLDER = 'Search for Movies or TV series';
 export const MOVIE_INPUT_PLACEHOLDER = 'Search for movies';
 export const TV_INPUT_PLACEHOLDER = 'Search for TV series';
 export const BOOKMARK_INPUT_PLACEHOLDER = 'Search for bookmarked shows';
+export const PLAY_LABEL = 'Play';
 export const GET_DATA = '/mock/GET.json';
 export const TRENDING_HEADING = 'Trending';
 export const RECOMMENDED_HEADING = 'Collection for you';
