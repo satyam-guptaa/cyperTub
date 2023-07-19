@@ -26,6 +26,7 @@ const CarouselNew = ({ data }) => {
 					spaceBetween: 50,
 				},
 			}}
+			pagination
 			onSwiper={(swiper) => {}}
 			onSlideChange={() => {}}
 		>
