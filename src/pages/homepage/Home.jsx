@@ -8,7 +8,7 @@ import {
 } from '../../utilities/constants/appconstants';
 import Search from '../../components/searchbar/Search';
 import PlaceholderCard from '../../components/placeholders/PlaceholderCard';
-import RenderCards from '../../components/card-helper/RenderCards.jsx';
+import RenderCards from '../../components/cardhelper/RenderCards.jsx';
 import { useFilter } from '../../hooks/useFilter';
 import CarouselNew from '../../components/carousel';
 

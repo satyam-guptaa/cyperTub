@@ -8,6 +8,7 @@ import {
 } from '../../utilities/constants/bookmarkSVGs';
 import { PLAY_LABEL } from '../../utilities/constants/appconstants';
 import { ToastContainer, toast } from 'react-toastify';
+import RenderDetails from '../cardhelper/renderDetails/RenderDetails';
 
 const TrendingCard = ({ item }) => {
 	const dispatch = useDispatch();
@@ -27,24 +28,6 @@ const TrendingCard = ({ item }) => {
 		});
 	};
 
-	const renderDetails = (year, category, rating) => {
-		//created a resuable funtion so that for each info it attaches the disc automatically avoiding repeatition
-		return (
-			<>
-				<div className='detail'>{year}</div>
-				<div className='detail detail-category'>
-					{category === 'Movie' ? (
-						<img src='/assets/icon-category-movie.svg' />
-					) : (
-						<img src='/assets/icon-category-tv.svg' />
-					)}
-					{category}
-				</div>
-				<div className='detail'>{rating}</div>
-			</>
-		);
-	};
-
 	return (
 		<article className={`thumbnail ${imgLoaded ? 'thumbnail-loaded' : ''}`}>
 			<img
@@ -61,9 +44,12 @@ const TrendingCard = ({ item }) => {
 				{item.isBookmarked ? bookmarkSVGFull : bookmarkSVG}
 			</button>
 			<div className='thumbnail-details-container'>
-				<div className='thumbnail-details'>
-					{renderDetails(item.year, item.category, item.rating)}
-				</div>
+				<RenderDetails
+					year={item.year}
+					category={item.category}
+					rating={item.rating}
+					fontSize='1.5rem'
+				/>
 				<h2>{item.title}</h2>
 			</div>
 			<div className='thumbnail-play-container'>

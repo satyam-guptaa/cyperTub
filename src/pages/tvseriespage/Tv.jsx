@@ -4,7 +4,7 @@ import {
 	TV_INPUT_PLACEHOLDER,
 	TV_TYPE,
 } from '../../utilities/constants/appconstants';
-import RenderCardsNew from '../../components/card-helper';
+import RenderCardsNew from '../../components/cardhelper';
 
 const TV = () => {
 	return (

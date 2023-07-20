@@ -4,7 +4,7 @@ import {
 	MOVIE_INPUT_PLACEHOLDER,
 	MOVIE_TYPE,
 } from '../../utilities/constants/appconstants';
-import RenderCardsNew from '../../components/card-helper';
+import RenderCardsNew from '../../components/cardhelper';
 
 const Movies = () => {
 	return (

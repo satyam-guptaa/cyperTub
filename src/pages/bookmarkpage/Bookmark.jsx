@@ -9,7 +9,7 @@ import {
 	MOVIE_TYPE,
 	TV_TYPE,
 } from '../../utilities/constants/appconstants';
-import RenderCards from '../../components/card-helper/RenderCards';
+import RenderCards from '../../components/cardhelper/RenderCards';
 import { useFilter } from '../../hooks/useFilter';
 
 const Bookmark = () => {
