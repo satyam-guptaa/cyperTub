@@ -3,6 +3,8 @@
 .app {
 	display: flex;
 	margin-bottom: 3.2rem;
+	margin-right: 3.2rem;
+	overflow-x: hidden;
 
 	@include ipad {
 		flex-direction: column;

@@ -7,19 +7,16 @@ import {
 	bookmarkSVGFull,
 } from '../../utilities/constants/bookmarkSVGs';
 import { PLAY_LABEL } from '../../utilities/constants/appconstants';
-import { toast } from 'react-toastify';
 import RenderDetails from '../cardhelper/renderDetails/RenderDetails';
+import { useNavigate } from 'react-router-dom';
 
 const Card = ({ cardData }) => {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const [imgLoaded, setImgLoaded] = useState(false);
 
 	const handlePlay = () => {
-		toast('Work in progress!!', {
-			type: 'info',
-			position: 'top-right',
-			toastId: 'WIPcard',
-		});
+		navigate('/stream', { state: { ...cardData } });
 	};
 
 	const handleOnBookmark = () => {
