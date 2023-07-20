@@ -8,29 +8,13 @@ import {
 } from '../../utilities/constants/bookmarkSVGs';
 import { PLAY_LABEL } from '../../utilities/constants/appconstants';
 import { toast } from 'react-toastify';
+import RenderDetails from '../cardhelper/renderDetails/RenderDetails';
 import { useNavigate } from 'react-router-dom';
 
 const Card = ({ cardData }) => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const [imgLoaded, setImgLoaded] = useState(false);
-	const renderDetails = (year, category, rating) => {
-		//created a resuable funtion so that for each info it attaches the disc automatically avoiding repeatition
-		return (
-			<>
-				<div className='detail'>{year}</div>
-				<div className='detail detail-category'>
-					{category === 'Movie' ? (
-						<img src='/assets/icon-category-movie.svg' />
-					) : (
-						<img src='/assets/icon-category-tv.svg' />
-					)}
-					{category}
-				</div>
-				<div className='detail'>{rating}</div>
-			</>
-		);
-	};
 
 	const handlePlay = () => {
 		navigate('/stream', { state: { ...cardData } });
@@ -67,13 +51,12 @@ const Card = ({ cardData }) => {
 			<button className='card-img-bookmark' onClick={handleOnBookmark}>
 				{cardData.isBookmarked ? bookmarkSVGFull : bookmarkSVG}
 			</button>
-			<div className='card-details'>
-				{renderDetails(
-					cardData.year,
-					cardData.category,
-					cardData.rating
-				)}
-			</div>
+			<RenderDetails
+				year={cardData.year}
+				category={cardData.category}
+				rating={cardData.rating}
+				fontSize='1.3rem'
+			/>
 			<h2 className='card-title'>{cardData.title}</h2>
 		</article>
 	);
