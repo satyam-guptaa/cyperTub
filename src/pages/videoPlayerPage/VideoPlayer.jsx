@@ -1,17 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './videoplayer.scss';
 import { useLocation } from 'react-router-dom';
+import RenderDetails from '../../components/cardhelper/renderDetails/RenderDetails';
 
 const VideoPlayer = () => {
 	const location = useLocation();
+	const videoRef = useRef(null);
 	const [videoData] = useState(location.state);
-	console.log(videoData);
+
+	useEffect(() => {
+		if (
+			window.screen.orientation &&
+			/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+				navigator.userAgent
+			)
+		) {
+			document.addEventListener(
+				'fullscreenchange',
+				handleFullscreenChange
+			);
+		}
+
+		return () => {
+			document.removeEventListener(
+				'fullscreenchange',
+				handleFullscreenChange
+			);
+		};
+	}, []);
+
+	const handleFullscreenChange = () => {
+		if (document.fullscreenElement === videoRef.current) {
+			window.screen.orientation
+				.lock('landscape')
+				.catch((err) => console.error('Orientation lock error:', err));
+		} else {
+			window.screen.orientation.unlock();
+		}
+	};
 
 	return (
 		<section className='video-container'>
 			<div className='video-player'>
 				<video
 					src='/assets/video/sample.mp4'
+					ref={videoRef}
 					type='video/mp4'
 					controls
 					width='100%'
@@ -21,9 +54,12 @@ const VideoPlayer = () => {
 			</div>
 			<div className='video-details'>
 				<h1>{videoData.title}</h1>
-				<p>
-					{videoData.year} {videoData.category} {videoData.rating}
-				</p>
+				<RenderDetails
+					year={videoData.year}
+					category={videoData.category}
+					rating={videoData.rating}
+					fontSize='1.5rem'
+				/>
 				<p>
 					Lorem, ipsum dolor sit amet consectetur adipisicing elit.
 					Error non temporibus in obcaecati fugit impedit! Molestias

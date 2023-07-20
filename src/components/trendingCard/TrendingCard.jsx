@@ -7,11 +7,12 @@ import {
 	bookmarkSVGFull,
 } from '../../utilities/constants/bookmarkSVGs';
 import { PLAY_LABEL } from '../../utilities/constants/appconstants';
-import { ToastContainer, toast } from 'react-toastify';
 import RenderDetails from '../cardhelper/renderDetails/RenderDetails';
+import { useNavigate } from 'react-router-dom';
 
 const TrendingCard = ({ item }) => {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const [imgLoaded, setImgLoaded] = useState(false);
 
 	const handleOnBookmark = () => {
@@ -21,11 +22,7 @@ const TrendingCard = ({ item }) => {
 	};
 
 	const handlePlay = () => {
-		toast('Work in progress!!', {
-			type: 'info',
-			position: 'top-right',
-			toastId: 'WIP',
-		});
+		navigate('/stream', { state: { ...item } });
 	};
 
 	return (

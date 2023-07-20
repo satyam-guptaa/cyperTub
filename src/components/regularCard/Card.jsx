@@ -7,7 +7,6 @@ import {
 	bookmarkSVGFull,
 } from '../../utilities/constants/bookmarkSVGs';
 import { PLAY_LABEL } from '../../utilities/constants/appconstants';
-import { toast } from 'react-toastify';
 import RenderDetails from '../cardhelper/renderDetails/RenderDetails';
 import { useNavigate } from 'react-router-dom';
 
