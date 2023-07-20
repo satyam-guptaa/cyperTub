@@ -9,6 +9,7 @@ export const RECOMMENDED_HEADING = 'Collection for you';
 export const MOVIES_HEADING = 'Movies';
 export const MOVIE_TYPE = 'Movie';
 export const TV_TYPE = 'TV Series';
+export const HOME_TYPE = 'Home';
 export const BOOKMARK_MOVIE_HEADING = 'Bookmarked Movies';
 export const BOOKMARK_TV_HEADING = 'Bookmark TV Series';
 export const TV_HEADING = 'TV Series';
