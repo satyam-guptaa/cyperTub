@@ -7,6 +7,21 @@ html {
 	@media (width <= 450px) {
 		font-size: 6px;
 	}
+	::-webkit-scrollbar {
+		width: 10px;
+		&:hover {
+			width: 10px;
+		}
+	}
+	::-webkit-scrollbar-track {
+		background: #10141e;
+	}
+	::-webkit-scrollbar-thumb {
+		background: #161d2f;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: grey;
+	}
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	-webkit-tap-highlight-color: transparent;
 }

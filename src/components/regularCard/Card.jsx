@@ -8,9 +8,11 @@ import {
 } from '../../utilities/constants/bookmarkSVGs';
 import { PLAY_LABEL } from '../../utilities/constants/appconstants';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const Card = ({ cardData }) => {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const [imgLoaded, setImgLoaded] = useState(false);
 	const renderDetails = (year, category, rating) => {
 		//created a resuable funtion so that for each info it attaches the disc automatically avoiding repeatition
@@ -31,11 +33,7 @@ const Card = ({ cardData }) => {
 	};
 
 	const handlePlay = () => {
-		toast('Work in progress!!', {
-			type: 'info',
-			position: 'top-right',
-			toastId: 'WIPcard',
-		});
+		navigate('/stream', { state: { ...cardData } });
 	};
 
 	const handleOnBookmark = () => {

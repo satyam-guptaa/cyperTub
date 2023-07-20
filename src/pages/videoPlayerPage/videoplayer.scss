@@ -1,0 +1,25 @@
+@import '../../stylesheet/main.scss';
+
+.video-container {
+	.video-player {
+		margin-top: 3.5rem;
+		width: 100%;
+		height: 50rem;
+
+		video {
+			object-fit: cover;
+		}
+	}
+
+	.video-details {
+		margin-top: 1.5rem;
+		h1 {
+			@include font-hlg-light;
+		}
+
+		p {
+			margin-bottom: 2rem;
+			@include font-bmd-light;
+		}
+	}
+}

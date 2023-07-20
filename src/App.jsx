@@ -8,6 +8,7 @@ import Movies from './pages/moviespage/Movies';
 import Home from './pages/homepage/Home';
 import Tv from './pages/tvseriespage/Tv';
 import Bookmark from './pages/bookmarkpage/Bookmark';
+import VideoPlayer from './pages/videoPlayerPage/VideoPlayer';
 import { fetchAppData } from './store/appDataSlice';
 import { ToastContainer } from 'react-toastify';
 
@@ -29,6 +30,7 @@ function App() {
 					<Route path='/movies' element={<Movies />}></Route>
 					<Route path='/tv-series' element={<Tv />}></Route>
 					<Route path='/bookmarks' element={<Bookmark />}></Route>
+					<Route path='/stream' element={<VideoPlayer />}></Route>
 				</Routes>
 			</div>
 		</div>
