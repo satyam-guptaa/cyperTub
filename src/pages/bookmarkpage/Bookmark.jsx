@@ -16,10 +16,14 @@ const Bookmark = () => {
 	const { data } = useSelector((state) => state.appData);
 	const [filteredData, handleOnChange, inputVal] = useFilter(data);
 	const bookmarkMovieData = useMemo(() => {
-		return filteredData.filter((item) => item.category === MOVIE_TYPE);
+		return filteredData.filter(
+			(item) => item.category === MOVIE_TYPE && item.isBookmarked
+		);
 	}, [filteredData]);
 	const bookmarkTVData = useMemo(() => {
-		return filteredData.filter((item) => item.category === TV_TYPE);
+		return filteredData.filter(
+			(item) => item.category === TV_TYPE && item.isBookmarked
+		);
 	}, [filteredData]);
 	//Refactoring needed here
 	return (
