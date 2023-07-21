@@ -8,9 +8,9 @@ import {
 } from '../../utilities/constants/appconstants';
 import Search from '../../components/searchbar/Search';
 import PlaceholderCard from '../../components/placeholders/PlaceholderCard';
-import RenderCards from '../../components/cardhelper/RenderCards.jsx';
 import { useFilter } from '../../hooks/useFilter';
 import CarouselNew from '../../components/carousel';
+import RenderCardsNew from '../../components/cardhelper';
 
 const Home = () => {
 	const { data } = useSelector((state) => state.appData);
@@ -36,17 +36,13 @@ const Home = () => {
 					</div>
 				)}
 			</article>
-			<article className='home-recommended-section'>
-				<h1>{RECOMMENDED_HEADING}</h1>
-				<section className='cards-container'>
-					<RenderCards
-						items={filteredData}
-						noAppData={data.length === 0}
-					/>
-					{data.length > 0 &&
-						filteredData.length === 0 &&
-						inputVal && <p>No Results found here for {inputVal}</p>}
-				</section>
+			<article className='section-container'>
+				<RenderCardsNew
+					heading={RECOMMENDED_HEADING}
+					filteredData={filteredData}
+					inputVal={inputVal}
+					appData={data}
+				/>
 			</article>
 		</section>
 	);

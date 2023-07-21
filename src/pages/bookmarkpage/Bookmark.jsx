@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import Search from '../../components/searchbar/Search';
-import './bookmark.scss';
 import {
 	BOOKMARK_INPUT_PLACEHOLDER,
 	BOOKMARK_MOVIE_HEADING,
@@ -9,8 +8,8 @@ import {
 	MOVIE_TYPE,
 	TV_TYPE,
 } from '../../utilities/constants/appconstants';
-import RenderCards from '../../components/cardhelper/RenderCards';
 import { useFilter } from '../../hooks/useFilter';
+import RenderCardsNew from '../../components/cardhelper';
 
 const Bookmark = () => {
 	const { data } = useSelector((state) => state.appData);
@@ -25,7 +24,7 @@ const Bookmark = () => {
 			(item) => item.category === TV_TYPE && item.isBookmarked
 		);
 	}, [filteredData]);
-	//Refactoring needed here
+
 	return (
 		<section className='section-container'>
 			<Search
@@ -33,26 +32,18 @@ const Bookmark = () => {
 				value={inputVal}
 				onChange={handleOnChange}
 			/>
-			<h1>{BOOKMARK_MOVIE_HEADING}</h1>
-			<div className='cards-container'>
-				<RenderCards
-					items={bookmarkMovieData}
-					noAppData={data.length === 0}
-				/>
-				{data.length > 0 &&
-					bookmarkMovieData.length === 0 &&
-					inputVal && <p>No Results found here for {inputVal}</p>}
-			</div>
-			<h1>{BOOKMARK_TV_HEADING}</h1>
-			<div className='cards-container'>
-				<RenderCards
-					items={bookmarkTVData}
-					noAppData={data.length === 0}
-				/>
-				{data.length > 0 && bookmarkTVData.length === 0 && inputVal && (
-					<p>No Results found here for {inputVal}</p>
-				)}
-			</div>
+			<RenderCardsNew
+				filteredData={bookmarkMovieData}
+				heading={BOOKMARK_MOVIE_HEADING}
+				appData={data}
+				inputVal={inputVal}
+			/>
+			<RenderCardsNew
+				filteredData={bookmarkTVData}
+				heading={BOOKMARK_TV_HEADING}
+				appData={data}
+				inputVal={inputVal}
+			/>
 		</section>
 	);
 };
