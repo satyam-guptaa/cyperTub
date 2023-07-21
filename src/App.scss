@@ -39,5 +39,9 @@
 			@include font-hlg-light;
 			margin-top: 4rem;
 		}
+		.no-results-container {
+			text-align: center;
+			@include font-hxs-medium;
+		}
 	}
 }
